@@ -1,0 +1,24 @@
+footer {
+  justify-content: center;
+  align-items: center;
+
+  .footer-agreements {
+    padding: .5em 1em;
+    font-size: 1rem;
+
+    a {
+      display: block;
+      margin-bottom: .2rem;
+      text-align: left;
+    }
+  }
+
+  .footer-about {
+    padding: .5em 1em;
+    text-align: left;
+  }
+
+  .footer-info {
+    padding: .5em 1em;
+  }
+}

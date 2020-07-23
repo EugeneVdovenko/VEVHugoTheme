@@ -1,0 +1,12 @@
+name: "VEV"
+license: "MIT"
+licenselink: "https://github.com/eugenevdovenko/vev-theme/blob/master/LICENSE"
+description: "Theme for static site blog"
+homepage: "https://vdovenko.net/"
+tags: ["blog"]
+features: ["disqus", "google analytics", "yandex metrics", "facebook pixel", "share"]
+min_version: "0.70.0"
+
+author:
+  name: "Eugene Vdovenko"
+  homepage: "https://vdovenko.net"

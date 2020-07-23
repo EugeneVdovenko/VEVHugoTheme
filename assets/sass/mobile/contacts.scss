@@ -1,0 +1,235 @@
+.content {
+  .contact-page { // страница с контактами
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .contacts { // ссылки на профили
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      a {
+        position: relative;
+
+        .link-description {
+          display: none;
+          white-space: nowrap;
+        }
+
+        &:hover {
+          .link-description {
+            display: inline;
+            position: absolute;
+            line-height: 20px;
+            top: 50px;
+            left: 0;
+            background-color: rgba(10, 10, 10, 0.7);
+            color: #eeeeee;
+            border-radius: 5px;
+            padding: 5px;
+          }
+        }
+      }
+
+      label.soc-icon {
+        position: relative;
+        font-size: 1.5rem;
+        cursor: pointer;
+        text-align: center;
+
+        .link-description {
+          display: none;
+          font-size: 1rem;
+          white-space: nowrap;
+        }
+
+        &:hover {
+          .link-description {
+            display: inline;
+            position: absolute;
+            line-height: 20px;
+            top: 50px;
+            left: 0;
+            background-color: rgba(10, 10, 10, 0.7);
+            color: #eeeeee;
+            border-radius: 5px;
+            padding: 5px;
+          }
+        }
+
+      }
+
+      .more {
+        width: 100%;
+        position: relative;
+
+        a {
+          display: none;
+        }
+
+        #social-more:checked ~ .more-links {
+          text-align: center;
+          padding: 0 0 10px 0;
+          margin: 0 0 10px 0;
+
+          a {
+            display: inline-block;
+            background-color: rgba(0, 0, 0, .5);
+            color: #FFFFFF;
+            padding: 10px;
+            margin: 2px;
+            box-shadow: 5px 5px 10px #000000;
+            border-radius: 5px;
+
+            &:active {
+              box-shadow: none;
+            }
+
+            &:hover {
+              background-color: #000000;
+            }
+          }
+        }
+      }
+
+      .soc-icon {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        margin: .3rem .3rem 2rem .3rem;
+        box-shadow: 5px 5px 10px #000000;
+        border-radius: 5px;
+        padding: 5px;
+
+        &:active {
+          box-shadow: inset 0 0 2px #000000;
+        }
+
+      }
+
+      .facebook {
+        &:hover svg {
+          fill: #1877F2;
+        }
+      }
+
+      .twitter {
+        &:hover svg {
+          fill: #1DA1F2;
+        }
+      }
+
+      .youtube {
+        &:hover svg {
+          fill: #FF0000;
+        }
+      }
+
+      .instagram {
+        &:hover svg {
+          fill: #E4405F;
+        }
+      }
+
+      .rss {
+        &:hover svg {
+          fill: #FFA500;
+        }
+      }
+
+      .github {
+        &:hover svg {
+          fill: #181717;
+        }
+      }
+
+      .gitlab {
+        &:hover svg {
+          fill: #FCA121;
+        }
+      }
+
+      .linkedin {
+        &:hover svg {
+          fill: #0077B5;
+        }
+      }
+
+      .vk {
+        &:hover svg {
+          fill: #4680C2;
+        }
+      }
+
+      .telegram {
+        &:hover svg {
+          fill: #4680C2;
+        }
+      }
+
+      .email {
+        &:hover svg {
+          fill: #FF0000;
+        }
+      }
+
+      .phone {
+        &:hover svg {
+          fill: #4680C2;
+        }
+      }
+    }
+
+    .feedback { // форма обратной связи
+      width: 80%;
+      min-width: 400px;
+      max-width: 600px;
+
+      .feedback-form {
+        fieldset {
+          border: none;
+
+          legend {
+            text-align: center;
+            margin-bottom: .5em;
+          }
+
+          .feedback-form-subject {
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            height: 2em;
+            border: 1px solid $backgroundAlt1Color;
+            margin-bottom: 10px;
+            outline: none;
+          }
+
+          .feedback-form-message {
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            border: 1px solid $backgroundAlt1Color;
+            margin-bottom: 10px;
+            outline: none;
+          }
+
+          button {
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            height: 3em;
+            background-color: transparent;
+            border: 1px solid $backgroundAlt1Color;
+
+            &:hover {
+              background-color: $backgroundColor;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}

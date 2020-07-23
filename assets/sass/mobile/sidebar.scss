@@ -1,0 +1,184 @@
+aside.info {
+  display: grid;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: none;
+  width: 0;
+
+  #mobile-menu-open:checked + & {
+    overflow: visible;
+    width: auto;
+    position: relative;
+
+    .info-content {
+      // левая колонка зафиксирована и без прокрутки с максимальной шириной в 400px
+      box-sizing: border-box;
+      background-color: $backgroundColor;
+      max-width: 400px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 10;
+
+      @media (min-width: $desktopWidth) {
+        // как  только ширина экрана больше 1024px - просто показываем левой колонкой
+        position: relative;
+        top: auto;
+        left: auto;
+        bottom: auto;
+
+        label.mobile-menu-button {
+          display: none;
+        }
+
+        .side-bio {
+          .author-summary {
+            display: block;
+          }
+        }
+
+      }
+
+      @media (max-height: 700px) {
+        // как только высота меньше 700px - прокрутка вместе с контентом
+        width: auto;
+        position: absolute;
+        bottom: auto;
+        height: 100%;
+
+        label.mobile-menu-button {
+          display: block;
+        }
+      }
+
+      .mobile-menu-button {
+        display: block;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+
+        &::before {
+          content: "";
+          display: block;
+          margin-top: 50%;
+          border-top: 2px solid black;
+          transform: rotate(45deg);
+
+        }
+
+        &::after {
+          content: "";
+          display: block;
+          margin-bottom: 50%;
+          border-top: 2px solid black;
+          transform: rotate(-45deg);
+        }
+      }
+
+      .side-bio { // фото, имя, описание
+        justify-items: center;
+        margin: 2em;
+
+        &:hover {
+          .link-avatar {
+            .author-avatar {
+              filter: none;
+
+              &.avatar-front {
+                transform: rotateY(180deg);
+              }
+
+              &.avatar-back {
+                transform: rotateY(360deg);
+              }
+            }
+          }
+        }
+
+        .link-avatar {
+          display: block;
+          border-radius: 50%;
+          overflow: hidden;
+          border: 10px solid $backgroundAlt1Color;
+          width: 150px;
+          height: 150px;
+
+          position: relative;
+
+          .author-avatar {
+            display: block;
+            border-radius: 50%;
+            max-width: 150px;
+            max-height: 150px;
+            filter: grayscale(100%);
+
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+            transition: .5s;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            &.avatar-back {
+              transform: rotateY(180deg);
+            }
+          }
+
+          @media (max-width: 350px) {
+            margin-top: 5vh;
+            width: 40vw;
+            height: 40vw;
+
+            img.author-avatar {
+              width: 40vw;
+              height: 40vw;
+            }
+          }
+        }
+
+        .author-name {
+          display: block;
+          text-align: center;
+          font-size: 1.5em;
+          margin: .5em 0;
+        }
+
+        .author-summary {
+          display: none;
+          margin: 10px 0;
+          text-align: justify;
+        }
+      }
+
+      .side-nav {
+        display: flex;
+        flex-direction: column;
+
+        .nav-link {
+          margin: 0;
+          width: 100%;
+          line-height: 1.5em;
+          text-align: center;
+          font-size: 1.5em;
+
+          &.active {
+            font-weight: bolder;
+
+            &::first-letter {
+              color: $firstLetterColor;
+            }
+          }
+
+          &:hover {
+            background-color: $backgroundAlt1Color;
+          }
+        }
+      }
+    }
+  }
+}

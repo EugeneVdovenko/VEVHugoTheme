@@ -1,0 +1,11 @@
+aside.ads-right {
+  width: auto;
+
+  .banner-right-content {
+    &.banner-right-medium {
+      display: block;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+  }
+}

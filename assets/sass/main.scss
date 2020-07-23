@@ -1,0 +1,77 @@
+// разрешения экрана для медизапросов
+$mobileSmallWidth: 320px;
+$mobileWidth: 375px;
+$mobileLargeWidth: 425px;
+
+$tabletWidth: 768px;
+
+$desktopWidth: 1024px;
+$desktopLargeWidth: 1440px;
+
+$previewPictureHeight: 200px;
+$previewPictureWidth: 200px;
+
+// цвета
+$textColor: #000000;
+$textAlt1Color: #999999;
+$labelColorText: #eeeeee; // для label на карточке статьи
+
+$backgroundColor: #eeeeee;
+$backgroundAlt1Color: #cccccc;
+$backgroundAlt2Color: rgba(0, 0, 0, .7); // для label на карточке статьи
+
+$firstLetterColor: #ff0000;
+
+$projectCount: {{ len .Site.Data.projects }};
+
+html {
+  /* Устанавливает желаемый относительный размер шрифта */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+
+  .bordered {
+    border: 1px dotted black;
+  }
+
+  .container {
+    header, footer, .ads-bottom, .content, .list {
+      box-sizing: border-box;
+      padding: 10px;
+    }
+
+    a {
+      &, &:active, &:hover, &:visited {
+        text-decoration: none;
+        outline: none;
+        color: $textColor;
+      }
+    }
+
+    h1 {
+      display: block;
+      font-size: 2rem;
+      letter-spacing: .2rem;
+      text-transform: uppercase;
+      margin: .3em 0;
+    }
+
+    #mobile-menu-open {
+      display: none;
+    }
+  }
+}
+
+@import "mobile-grid";
+
+@media (min-width: $tabletWidth) {
+  @import "tablet-grid";
+}
+
+@media (min-width: $desktopWidth) {
+  @import "desktop-grid";
+}

@@ -1,0 +1,124 @@
+body {
+  .container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto auto;
+    grid-gap: .2vw;
+    grid-template-areas:
+      "side-info header"
+      "side-info content"
+      "side-info ads-bottom"
+      "side-info footer";
+
+    aside.info {
+      grid-area: side-info;
+
+      .side-bio { // фото, имя, описание
+        grid-area: side-bio;
+
+        display: grid;
+      }
+
+      .side-nav {
+        grid-area: side-nav;
+      }
+    }
+
+    header {
+      grid-area: header;
+
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto auto;
+      grid-gap: .2vw;
+      grid-template-areas:
+        "nav-button site-title"
+        "nav-button site-subtitle";
+
+      .mobile-menu-button {
+        grid-area: nav-button;
+      }
+
+      .site-title {
+        grid-area: site-title;
+      }
+
+      .site-subtitle {
+        grid-area: site-subtitle;
+      }
+    }
+
+    .content {
+      grid-area: content;
+
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: 1fr;
+      grid-gap: .2vw;
+      grid-template-areas:
+        "article-list ads-right";
+
+      div.list {
+        grid-area: article-list;
+
+        .no-content-splash {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr;
+          grid-template-areas:
+            "no-post-message";
+          grid-gap: .2vw;
+
+          .no-post-message {
+            grid-area: no-post-message;
+          }
+        }
+      }
+
+      aside.ads-right {
+        grid-area: ads-right;
+      }
+
+      &.clean {
+        display: block;
+      }
+    }
+
+    aside.ads-bottom {
+      grid-area: ads-bottom;
+    }
+
+    section.ads-inner {
+      grid-area: ads-inner;
+    }
+
+    footer {
+      grid-area: footer;
+
+      display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas:
+          "footer-agreements footer-info footer-about";
+      grid-row-gap: .2vw;
+      
+      .footer-agreements {
+        grid-area: footer-agreements;
+      }
+
+      .footer-about {
+        grid-area: footer-about;
+      }
+
+      .footer-info {
+        grid-area: footer-info;
+      }
+    }
+
+    min-height: 100vh;
+  }
+}
+
+@import "tablet/header";
+@import "tablet/footer";
+@import "tablet/ads";

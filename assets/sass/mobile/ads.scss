@@ -1,0 +1,20 @@
+aside.ads-right {
+  width: 0;
+
+  .banner-right-content {
+    display: none;
+  }
+}
+
+aside.ads-bottom {
+  .banner-bottom-content {
+    display: none;
+
+    &.banner-bottom-large {
+      display: block;
+      max-width: 728px;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+}

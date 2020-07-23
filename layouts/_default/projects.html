@@ -1,0 +1,53 @@
+{{ define "main" }}
+<input type="checkbox" id="mobile-menu-open">
+
+<aside class="info">
+    {{- partial "info.html" . -}}
+</aside>
+
+<header>
+    <label for="mobile-menu-open" class="mobile-menu-button"></label>
+    {{- partial "header.html" . -}}
+</header>
+
+<div class="content">
+    {{ $projects := sort .Site.Data.projects "order" "asc" }}
+    <div class="projects">
+        {{ $loop := 1 }}
+        {{ range $projects }}
+        <input {{ if eq $loop 1 }}checked{{ end }} type="radio" name="slider" id="{{ printf "project%1.f" .order }}" class="slider-radio">
+        {{ $loop = 2 }}
+        <div class="project-card">
+            <h3 class="project-header"><a href="{{ .url }}">{{ .title }}</a></h3>
+            <figure>
+                <a href="{{ .url }}" target="_blank"><img src="{{ .screenshot }}" alt="{{ .title }}" width="800" height="400"></a>
+                <figcaption>{{ .description }}</figcaption>
+            </figure>
+        </div>
+        {{ end }}
+
+        {{ if gt (len $projects) 1 }}
+        <div id="active">
+            {{ range $projects }}
+            <label for="{{ printf "project%1.f" .order }}"></label>
+            {{ end }}
+        </div>
+        {{ end }}
+
+        {{ if gt (len $projects) 1 }}
+        <div id="controls">
+            {{ range $projects }}
+            <label for="{{ printf "project%1.f" .order }}"></label>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+</div>
+
+<aside class="ads ads-bottom"></aside>
+
+<footer>
+    {{- partial "footer.html" . -}}
+</footer>
+{{ end }}
+

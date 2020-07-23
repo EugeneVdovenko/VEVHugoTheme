@@ -1,0 +1,245 @@
+.content {
+  .list {
+    .no-content-splash {
+      min-height: 100%;
+      justify-content: center;
+      align-items: center;
+
+      .no-post-message {
+        text-align: center;
+        text-transform: uppercase;
+        color: $firstLetterColor;
+      }
+    }
+  }
+
+  .post-card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .post-label {
+      background-color: $backgroundAlt2Color;
+      font-size: 9px;
+      line-height: 9px;
+      color: $labelColorText;
+      display: block;
+      padding: 1em;
+      position: absolute;
+      top: .5em;
+      right: 0;
+    }
+
+    .preview-image {
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-bottom: 1em;
+      width: 100%;
+      height: 200px;
+      order: 1;
+    }
+
+
+    .preview-header {
+      order: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .preview-text-title {
+        margin: 0;
+        font-size: 1.5rem;
+      }
+
+      .preview-text-date {
+        color: $textAlt1Color;
+        padding-left: 2em;
+      }
+    }
+
+    .preview-excerpt {
+      margin-top: 5px;
+      order: 3;
+      line-height: 1.5em;
+      text-align: justify;
+    }
+  }
+
+  .paginator {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    .page-link {
+      box-sizing: border-box;
+      border: 1px dotted #aaaaaa;
+      padding: .2rem .3rem;
+      margin: 0 .2rem;
+
+
+      &.active {
+        font-size: 2em;
+        color: $firstLetterColor;
+      }
+    }
+  }
+
+  .post {
+    text-align: justify;
+
+    .post-header-image {
+      width: 100%;
+      height: 100px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .post-title {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: bolder;
+      text-transform: uppercase;
+      margin: .5em 0 0 0;
+
+    }
+
+    .categories {
+      font-size: .8rem;
+      color: $textAlt1Color;
+
+      .post-category {
+        color: inherit;
+      }
+    }
+
+    .tags {
+      font-size: .8rem;
+      color: $textAlt1Color;
+
+      .post-tag {
+        color: inherit;
+      }
+    }
+
+    blockquote {
+      border-left: 2px solid $backgroundAlt1Color;
+      padding-left: 1em;
+      color: $textAlt1Color;
+    }
+
+    p {
+      line-height: 1.5rem;
+
+      &:first-of-type {
+        margin-top: 1.5rem;
+      }
+
+      a {
+        border-bottom: 1px dashed $backgroundAlt2Color;
+      }
+    }
+  }
+
+  .categories-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .category-link {
+      line-height: 2em;
+    }
+  }
+
+  .image {
+    &.inner {
+      &.left {
+        float: left;
+        margin: 0 20px 10px 0;
+        width: 30%;
+        max-width: 300px;
+        min-width: 100px;
+
+        img {
+          height: auto;
+          width: 100%;
+        }
+
+        figcaption {
+          text-align: center;
+        }
+
+        &:after {
+          content: "";
+          clear: both;
+        }
+      }
+
+      &.right {
+        float: right;
+        margin: 0 0 10px 20px;
+        width: 30%;
+        max-width: 300px;
+        min-width: 100px;
+
+        img {
+          height: auto;
+          width: 100%;
+        }
+
+        figcaption {
+          text-align: center;
+        }
+
+        &:after {
+          content: "";
+          clear: both;
+        }
+      }
+
+      &.justify {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        img {
+          margin: 10px;
+          max-width: 300px;
+          min-width: 100px;
+          width: auto;
+        }
+      }
+    }
+  }
+
+  .clouds {
+    text-align: center;
+
+    .cloud {
+      a {
+        background-color: $backgroundAlt2Color;
+        color: $labelColorText;
+        padding: .2em .5em;
+        border-radius: 5px;
+      }
+
+      span {
+        background-color: $backgroundAlt2Color;
+        color: $labelColorText;
+        padding: .2em .5em;
+        border-radius: 5px;
+        margin-left: 1px;
+        vertical-align: super;
+        font-size: smaller;
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+footer {
+  justify-content: center;
+
+  .footer-agreements {
+    padding: .5em 1em;
+
+    a {
+      display: block;
+      margin-bottom: .2rem;
+      text-align: center;
+    }
+  }
+
+  .footer-about {
+    padding: .5em 1em;
+    text-align: center;
+  }
+
+  .footer-info {
+    padding: .5em 1em;
+  }
+}

@@ -1,0 +1,12 @@
+<div class="footer-agreements">
+{{ $pages := (where .Site.RegularPages "Section" "legal") }}
+{{ range $pages }}
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+{{ end }}
+</div>
+
+<div class="footer-info"></div>
+
+<div class="footer-about">
+    <p class="copyright"> &copy; {{ now.Year }} {{ .Site.Title }}</p>
+</div>

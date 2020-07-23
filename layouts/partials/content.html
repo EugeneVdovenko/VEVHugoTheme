@@ -1,0 +1,16 @@
+{{ range (where .Site.RegularPages "Section" "post") }}
+<article class="post-card">
+    {{ if .Draft }}<span class="post-label">Черновик</span>{{ end }}
+    {{ if isset .Params "image" }}<div class="preview-image" style="background-image: url({{ printf "/img/content/%d/%s" (time .Date).Year .Params.image }});"></div>{{ end }}
+    <div class="preview-header">
+        <h2 class="preview-text-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <span class="preview-text-date">{{ (time .Date).Format "02.01.2006" }}</span>
+    </div>
+    <p class="preview-excerpt">{{ .Summary | plainify | emojify }}</p>
+</article>
+{{ else }}
+<div class="no-content-splash">
+    <p class="no-post-message">{{ i18n "Скоро здесь появится что-нибудь интересное" }}. <br>
+        {{ i18n "Но это не точно" }}.</p>
+</div>
+{{ end }}

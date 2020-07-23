@@ -1,0 +1,34 @@
+<script>
+    window.onload = function () {
+        const isWideScreen = window.matchMedia("(min-width: 1024px)").matches;
+
+
+        // управление меню.
+        let menu = {};
+        // флаг, открыто или закрыто меню
+        menu.isOpened = (localStorage.getItem('menu.isOpened') === 'true') || false;
+        // функция очистки запомненных данных
+        menu.clear = function () {
+            localStorage.removeItem('menu.isOpened');
+        };
+        menu.issetPosition  = function () {
+            return localStorage.getItem("menu.isOpened") !== null;
+        };
+
+        if (isWideScreen) {
+            let menuCheckbox = document.querySelector('#mobile-menu-open');
+            if (!menu.issetPosition() || menu.isOpened) {
+                menuCheckbox.setAttribute('checked', 'checked');
+                menu.isOpened = true;
+            }
+        }
+
+        let menuButton = document.querySelectorAll('.mobile-menu-button');
+        menuButton.forEach(function (el, idx) {
+            el.addEventListener('click', function () {
+                menu.isOpened = !menu.isOpened;
+                localStorage.setItem('menu.isOpened', menu.isOpened.toString());
+            })
+        });
+    };
+</script>

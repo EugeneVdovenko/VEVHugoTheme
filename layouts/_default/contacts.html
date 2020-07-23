@@ -1,0 +1,104 @@
+{{ define "main" }}
+<input type="checkbox" id="mobile-menu-open">
+
+<aside class="info">
+    {{- partial "info.html" . -}}
+</aside>
+
+<header>
+    <label for="mobile-menu-open" class="mobile-menu-button"></label>
+    {{- partial "header.html" . -}}
+</header>
+
+<div class="content">
+    <div class="contact-page">
+        <div class="contacts">
+            {{ $author := index .Site.Data.authors "eugene@vdovenko.net" }}
+            <a href="mailto:eugene@vdovenko.net" class="soc-icon email">
+                {{ "themes/vev/static/img/icons/email.svg" | readFile | safeHTML }}
+                <span class="link-description">&#101;&#117;&#103;&#101;&#110;&#101;&#64;&#118;&#100;&#111;&#118;&#101;&#110;&#107;&#111;&#46;&#110;&#101;&#116;</span>
+            </a>
+            <a href="phone:+447509769346" class="soc-icon phone">
+                {{ "themes/vev/static/img/icons/phone.svg" | readFile | safeHTML }}
+                <span class="link-description">&#43;&#52;&#52;&#32;&#55;&#53;&#48;&#57;&#32;&#55;&#54;&#57;&#51;&#52;&#54;</span>
+            </a>
+            <a href="https://facebook.com/{{ $author.social.facebook.username }}" class="soc-icon facebook"
+               target="_blank">
+                {{ "themes/vev/static/img/icons/facebook.svg" | readFile | safeHTML }}
+                <span class="link-description">Facebook</span>
+            </a>
+            <a href="https://instagram.com/{{ $author.social.instagram.username }}" class="soc-icon instagram"
+               target="_blank">
+                {{ "themes/vev/static/img/icons/instagram.svg" | readFile | safeHTML }}
+                <span class="link-description">Instagram</span>
+            </a>
+            <a href="https://twitter.com/{{ $author.social.twitter.username }}" class="soc-icon twitter"
+               target="_blank">
+                {{"themes/vev/static/img/icons/twitter.svg" | readFile | safeHTML }}
+                <span class="link-description">Twitter</span>
+            </a>
+            <a href="https://www.youtube.com/channel/{{ $author.social.youtube.channel }}" class="soc-icon youtube"
+               target="_blank">
+                {{ "themes/vev/static/img/icons/youtube.svg" | readFile | safeHTML }}
+                <span class="link-description">Youtube</span>
+            </a>
+            <a href="https://www.linkedin.com/in/{{ $author.social.linkedin.username }}/" class="soc-icon linkedin"
+               target="_blank">
+                {{ "themes/vev/static/img/icons/linkedin.svg" | readFile | safeHTML }}
+                <span class="link-description">LinkedIn</span>
+            </a>
+            <a href="https://t.me/{{ $author.social.telegram.channel }}" class="soc-icon telegram" target="_blank">
+                {{ "themes/vev/static/img/icons/telegram.svg" | readFile | safeHTML }}
+                <span class="link-description">Telegram</span>
+            </a>
+            <a href="{{ "index.xml" | absURL }}" class="soc-icon rss">
+                {{ "themes/vev/static/img/icons/rss.svg" | readFile | safeHTML }}
+                <span class="link-description">RSS</span>
+            </a>
+            <label for="social-more" class="soc-icon">. . .<span class="link-description">Ещё ссылки</span></label>
+            <div class="more">
+                <input type="checkbox" id="social-more" style="display: none;">
+                <div class="more-links">
+                    <a href="https://about.me/{{ $author.social.aboutme.username }}" target="_blank">About.Me</a>
+                    <a href="https://icq.im/{{ $author.social.icq.uin }}" target="_blank">ICQ</a>
+                    <a href="https://vimeo.com/{{ $author.social.vimeo.channel }}" target="_blank">Vimeo</a>
+                </div>
+            </div>
+        </div>
+        <div class="feedback">
+            <form action="https://submit-form.com/yBxqWJDtkxp0nrD6YV5fe" class="feedback-form" target="_self">
+                <input
+                        type="checkbox"
+                        name="_antibot"
+                        style="display:none"
+                        tabindex="-1">
+                <fieldset>
+                    <legend>Обратная связь</legend>
+                    <input
+                            name="subject"
+                            type="text"
+                            placeholder="Тема"
+                            class="feedback-form-subject"
+                            id="feedback-form-subject"
+                            required>
+                    <textarea
+                            name="message"
+                            class="feedback-form-message"
+                            id="feedback-form-message"
+                            cols="30"
+                            rows="10"
+                            placeholder="Сообщение"
+                            required></textarea>
+                    <button type="submit">Отправить</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<aside class="ads ads-bottom"></aside>
+
+<footer>
+    {{- partial "footer.html" . -}}
+</footer>
+{{ end }}

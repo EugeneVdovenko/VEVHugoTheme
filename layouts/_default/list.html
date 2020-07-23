@@ -1,0 +1,45 @@
+{{ define "main" }}
+<input type="checkbox" id="mobile-menu-open">
+
+<aside class="info">
+    {{- partial "info.html" . -}}
+</aside>
+
+<header>
+    <label for="mobile-menu-open" class="mobile-menu-button"></label>
+    {{- partial "header.html" . -}}
+</header>
+
+<div class="content">
+    <div class="list">
+        {{ range .Pages }}
+            <article class="post-card">
+                {{ if .Draft }}<span class="post-label">Черновик</span>{{ end }}
+                {{ if isset .Params "image" }}<div class="preview-image" style="background-image: url({{ printf "/img/content/%d/%s" (time .Date).Year .Params.image }});"></div>{{ end }}
+                <div class="preview-header">
+                    <h2 class="preview-text-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                    <span class="preview-text-date">{{ (time .Date).Format "02.01.2006" }}</span>
+                </div>
+                <p class="preview-excerpt">{{ .Summary | plainify | emojify }}</p>
+            </article>
+        {{ else }}
+            <div class="no-content-splash">
+                <p class="no-post-message">Скоро здесь появится что-нибудь интересное. <br>
+                    Но это не точно.</p>
+            </div>
+        {{ end }}
+    </div>
+
+    <aside class="ads ads-right">
+        {{- partial "ads/banner-right.html" . -}}
+    </aside>
+</div>
+
+<aside class="ads ads-bottom">
+    {{- partial "ads/banner-bottom.html" . -}}
+</aside>
+
+<footer>
+    {{- partial "footer.html" . -}}
+</footer>
+{{ end }}

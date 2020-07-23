@@ -1,0 +1,22 @@
+{{ define "main" }}
+<input type="checkbox" id="mobile-menu-open">
+
+<aside class="info">
+    {{- partial "info.html" . -}}
+</aside>
+
+<header>
+    <label for="mobile-menu-open" class="mobile-menu-button"></label>
+    {{- partial "header.html" . -}}
+</header>
+
+<div class="content clean">
+    {{ .Content }}
+</div>
+
+<aside class="ads ads-bottom"></aside>
+
+<footer>
+    {{- partial "footer.html" . -}}
+</footer>
+{{ end }}

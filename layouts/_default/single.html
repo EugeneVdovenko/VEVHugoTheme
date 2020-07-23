@@ -1,0 +1,56 @@
+{{ define "main" }}
+<input type="checkbox" id="mobile-menu-open">
+
+<aside class="info">
+    {{- partial "info.html" . -}}
+</aside>
+
+<header>
+    <label for="mobile-menu-open" class="mobile-menu-button"></label>
+    {{- partial "header.html" . -}}
+</header>
+
+<div class="content">
+    <div class="list">
+
+        <article class="post">
+            {{ if isset .Params "image" }}
+            <div class="post-header-image webfeedsFeaturedVisual" style="background-image: url({{ printf "/img/content/%d/%s" (time .Date).Year .Params.image }});"></div>
+            {{ end }}
+
+            <h2 class="post-title">{{ .Title }}</h2>
+
+            <div class="categories">
+            {{ $taxonomy := "categories" }}
+            {{ range $idx, $val := .GetTerms $taxonomy }}
+                {{ if gt $idx 0}} | {{ end }}
+                <a href="{{ .Permalink }}" class="post-category">{{ .LinkTitle }}</a>
+            {{ end }}
+            </div>
+
+            {{ .Summary }}
+            {{ .Content }}
+
+            <div class="tags">
+            {{ $taxonomy := "tags" }}
+            {{ range $idx, $val := .GetTerms $taxonomy }}
+                {{ if gt $idx 0}} | {{ end }}
+                <a href="{{ .Permalink }}" class="post-tag">{{ .LinkTitle }}</a>
+            {{ end }}
+            </div>
+        </article>
+    </div>
+
+    <aside class="ads ads-right">
+        {{- partial "ads/banner-right.html" . -}}
+    </aside>
+</div>
+
+<aside class="ads ads-bottom">
+    {{- partial "ads/banner-bottom.html" . -}}
+</aside>
+
+<footer>
+    {{- partial "footer.html" . -}}
+</footer>
+{{ end }}
